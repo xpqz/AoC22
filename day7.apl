@@ -12,7 +12,6 @@ day7←{
     }⍣{⊃⍵}⊢0 0 ⍺
 }
 _←0 day7 data←⊃⎕NGET'd/7'1
-target←3e7-7e7-⊃⊖SIZES
 +⌿SIZES/⍨SIZES<100000
-⌊/SIZES/⍨SIZES>target
+⌊/SIZES/⍨SIZES>3e7-7e7-⊃⊖SIZES
 
