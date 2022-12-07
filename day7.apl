@@ -1,21 +1,19 @@
-data←⊃⎕nget'd/7'1
-sizes←⍬
+SIZES←⍬
 day7←{
-    data←⍵
+    d←⍵
     1↓{
-        (_ size idx) ← ⍵
-        idx≥≢data: 1 size idx
-        line ← idx⊃data
-        n←⊃(//⎕vfi line)
-        1=≢n:0 (size+⊃n) (idx+1)
-        '..'(≡∨1∊⍷)line:1 size idx
-        '$ cd'(≡∨1∊⍷)line: (0 (size+dir_size) (idx+1))⊣(sizes,←dir_size)⊣(dir_size idx) ← (idx+1) day7 data
-        0 size (idx+1)
+        (_ s i)←⍵
+        i≥≢d: 1 s i
+        l←i⊃d
+        1=≢n←⊃(//⎕VFI l):0(s+⊃n)(i+1)
+        '..'(≡∨1∊⍷)l:1 s i
+        '$ cd'(≡∨1∊⍷)l: (0(s+ds)(i+1))⊣(SIZES,←ds)⊣(ds i)←(i+1)day7 d
+        0 s (i+1)
     }⍣{⊃⍵}⊢0 0 ⍺
 }
-_←0 day7 data
-total←+/∊{//⎕vfi⍵}¨data
-target←3e7-7e7-⊃⊖sizes
-+⌿sizes/⍨sizes<100000
-⌊/sizes/⍨sizes>target
+_←0 day7 data←⊃⎕NGET'd/7'1
+total←+/∊{//⎕VFI⍵}¨data
+target←3e7-7e7-⊃⊖SIZES
++⌿SIZES/⍨SIZES<100000
+⌊/SIZES/⍨SIZES>target
 
