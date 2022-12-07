@@ -1,7 +1,6 @@
 data←⊃⎕nget'd/7'1
 sizes←⍬
 day7←{
-    ⍺←0
     data←⍵
     1↓{
         (_ size idx) ← ⍵
@@ -14,7 +13,7 @@ day7←{
         0 size (idx+1)
     }⍣{⊃⍵}⊢0 0 ⍺
 }
-_←day7 data
+_←0 day7 data
 total←+/∊{//⎕vfi⍵}¨data
 target←3e7-7e7-⊃⊖sizes
 +⌿sizes/⍨sizes<100000
