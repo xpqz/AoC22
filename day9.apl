@@ -21,7 +21,7 @@ tailpath←tailp headpath
 
 ≢∪tailpath ⍝ part1
 
-⍝ part2: 10-tails -- actually rather easy: repeatedly do part1, but
+⍝ part2: 10(!) knots -- actually rather easy: repeatedly do part1, but
 ⍝ with the previous tail as the new head.
 paths ← ⊂headpath⋄_←{paths,←⊂p←tailp ⍵⋄p}⍣9⊢headpath
 
