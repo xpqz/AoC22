@@ -13,7 +13,7 @@ headpath←∊2{⍺+(-×∆)×⍳|∆←⍺-⍵}/+\0,moves
 ⍝ Helper func: if tail is more than 1 step either vertically or horizontally,
 ⍝ move diagonally. If within 1 step in both, remain. Otherwise, move 1 step
 ⍝ towards head.
-g←{1.5>||⍵-⍺:⍺⋄⍺+0j1⊥×11 9○⍵-⍺}
+g←{1.5>|⍵-⍺:⍺⋄⍺+0j1⊥×11 9○⍵-⍺}
 
 ⍝ First tail: follow the head
 tailp←{a←⍬⋄0{0=≢⍵:a⋄a,←v←⍺g⊃⍵⋄v∇1↓⍵}⍵}
