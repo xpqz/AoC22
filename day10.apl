@@ -1,24 +1,11 @@
-d←'-'⎕r'¯'¨⊃⎕nget'd/10'1
-cycle ← 0
-X ← 1
-scanline ← 241⍴0
-addx ← {
-    cycle +← 1
-    scanline[cycle]←X
-    cycle +← 1
-    scanline[cycle]←X
-    X+←⍵
-    ⍬
-}
+c X ← 0 1⋄ln ← 241⍴0
+addx ← {ln[c+1 2]←X⋄c+←2⋄X+←⍵⋄⍬}
 ∇ f←noop
-  cycle+←1
-  scanline[cycle]←X
+  c+←1⋄ln[c]←X
   f←⍬
 ∇
 
-_←{_←⍎¨⍵⋄⍬}⍣{cycle>220}⊢d
-pos ← 20 60 100 140 180 220
-+/pos×scanline[pos]
-
+_←{_←⍎¨⍵⋄⍬}⍣{c>220}⊢'-'⎕r'¯'¨⊃⎕NGET'd/10'1
++/pos×ln[20 60 100 140 180 220]
 f←{v←40|¯1+40|⍵⋄((⍺[⍵]-1)≤v)∧(v≤⍺[⍵]+1):'#'⋄'.'}
-6 40⍴scanline∘f¨1+⍳240
+6 40⍴ln∘f¨1+⍳240
