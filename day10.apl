@@ -1,6 +1,6 @@
 c X ← 0 1⋄ln ← 241⍴0
 addx ← {ln[c+1 2]←X⋄c+←2⋄X+←⍵⋄⍬}
-∇ f←noop
+∇ f←noop ⍝ tradfn, as can be niladic
   c+←1⋄ln[c]←X
   f←⍬
 ∇
