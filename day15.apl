@@ -1,3 +1,4 @@
+'big'⎕CY'dfns'
 data←{⍎¨' '(≠⊆⊢)⍵}¨'x=(-?\d+), y=(-?\d+)'⎕S'\1 \2'⊃⎕NGET'd/15'1
 data←(2÷⍨≢data)2⍴data
 mhd←{+⌿|-⌿↑⍺⍵}/data
