@@ -13,8 +13,6 @@ ranges ← {
 
 merged←⊃{(x y)←↓⍉↑⍺⍵⋄(⌊/x)(⌈/y)}/srng←ranges 2000000
 bx←∪(target=1⌷beacons)/1⌷beacons
-remove←+/(bx≥merged[0])∧(bx≤merged[1])
-
 (1+|-/merged)-+/(bx≥merged[0])∧(bx≤merged[1]) ⍝ part 1
 
 chkrng ← {(l r)←⊃1↑⍵⋄⍺<l:⍺⋄x←⍺⌈r+1⋄x>⍺⍺:¯1⋄x∇1↓⍵}
