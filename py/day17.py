@@ -8,61 +8,23 @@ def psum(pos, points):
 
 class Hline:
     def __init__(self, pos):
-        self.left = 0
-        self.bottom = 0
         self.shape = psum(pos, [[0, 0], [0, 1], [0, 2], [0, 3]])
-
-    def __repr__(self):
-        return f'Hline({self.shape})'
-
-    def __str__(self):
-        return 'Hline'
 
 class Cross:
     def __init__(self, pos):
-        self.left = 1
-        self.bottom = 4
         self.shape = psum(pos, [[2, 1], [1, 0], [1, 1], [1, 2], [0, 1]])
-
-    def __repr__(self):
-        return f'Cross({self.shape})'
-
-    def __str__(self):
-        return 'Cross'
 
 class Ell:
     def __init__(self, pos):
-        self.left = 2
-        self.bottom = 2
         self.shape = psum(pos, [[2, 2], [1, 2], [0, 0], [0, 1], [0, 2]])
-
-    def __repr__(self):
-        return f'Ell({self.shape})'
-
-    def __str__(self):
-        return 'Ell'
 
 class Vline:
     def __init__(self, pos):
-        self.left = 0
-        self.bottom = 3
         self.shape = psum(pos, [[3, 0], [2, 0], [1, 0], [0, 0]])
-
-    def __repr__(self):
-        return f'Vline({self.shape})'
-
-    def __str__(self):
-        return 'Vline'
 
 class Square:
     def __init__(self, pos):
         self.shape = psum(pos, [[1, 0], [1, 1], [0, 0], [0, 1]])
-
-    def __repr__(self):
-        return f'Square({self.shape})'
-
-    def __str__(self):
-        return 'Square'
 
 class Chamber:
     BLOCKS = [Hline, Cross, Ell, Vline, Square]
