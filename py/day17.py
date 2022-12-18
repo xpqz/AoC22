@@ -83,6 +83,11 @@ class Chamber:
         return [self.first, min(self.rows[self.first])]
 
     def register_state(self):
+        """
+        Part 2: record the 'profile' -- that is the relative height of all
+        seven columns, together with the current move index. If this ever
+        recurs, we can stop, as every subsequent state can now be derived.
+        """
         p = min(self.profile)
         prf = [a-p for a in self.profile]
         key = (tuple(prf), self.move_idx)
@@ -148,17 +153,21 @@ if __name__ == '__main__':
             moves.append(1)
 
     chamber = Chamber(moves)
+    # Keep going until we find a recurring state
     while True:
         if chamber.add_block():
             break
 
+    # We have a recurring state. Work out the periodicity
     spec = Chamber.SEEN[chamber.last_key]
     blocks_period = spec[1][0] - spec[0][0]
     height_period = spec[1][1] - spec[0][1]
 
+    # We can skip most of the mega range
     full = (1_000_000_000_000 - chamber.block_count) // blocks_period
     remainder = 1_000_000_000_000 - chamber.block_count - blocks_period * full
 
+    # Run out the remainder
     for i in range(remainder):
         if chamber.block_count == 2022:
             print(chamber.first) # Part 1
