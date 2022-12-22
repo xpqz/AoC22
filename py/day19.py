@@ -39,8 +39,7 @@ class State:
         return s
 
     def build(self, recipe, robot):
-        s = deepcopy(self)
-        s._produce()
+        s = self.produce()
         if robot == 'ore': 
             s.ore -= recipe.ore
             s.ore_r += 1
