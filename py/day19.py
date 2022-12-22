@@ -104,7 +104,7 @@ def search(recipe, minutes):
             
             can_build = current.buildable(recipe)
             for robot in can_build:
-                if robot == 'none':
+                if robot == 'none': # Stick no-builds at the end of the queue
                     queue.append((current.build(recipe, robot), t + 1, can_build))
                 elif robot in skipped:
                     continue
